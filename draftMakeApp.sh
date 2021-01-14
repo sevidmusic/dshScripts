@@ -25,7 +25,6 @@ path_to_ddms="${HOME}/DarlingDataManagementSystem"
 
 # @todo dsh --get-app-package-setting [PATH_TO_APP_PACKAGE] [SETTING_NAME] : Return value of specified setting defined in specified [PATH_TO_APP_PACKAGE]'s config.sh
 app_name="$(cat "${path_to_app_package}/config.sh" | grep 'app_name' | sed 's/^.*=//g' | sed 's/"//g')"
-
 [[ -z "${app_name}" ]] && printf "\n\e[103m\e[30mThe app_name could not be determined. app_name is: %s" "${app_name}" && exit 1
 
 # dev only
