@@ -21,17 +21,3 @@ set -o posix; logErrorMsg() { printf "\n\e[43m\e[30m%s\n\e[0m" "${1}" >> /dev/st
 
 ########################################## Please place all dsh calls after this line ####################################
 
-# Homepage Requests
-
-dsh -n Request "${app_name}" HomepageRoot HomepageRequests "\/"
-dsh -a "${app_name}" Homepage HomepageRoot HomepageRequests Request
-
-dsh -n Request "${app_name}" HomepageIndex HomepageRequests "index.php"
-dsh -a "${app_name}" Homepage HomepageIndex HomepageRequests Request
-
-dsh -n Request "${app_name}" HomepageHome HomepageRequests "index.php?page=home"
-dsh -a "${app_name}" Homepage HomepageHome HomepageRequests Request
-
-dsh -n Request "${app_name}" HomepageHomepage HomepageRequests "index.php?page=homepage"
-dsh -a "${app_name}" Homepage HomepageHomepage HomepageRequests Request
-

@@ -17,16 +17,3 @@ set -o posix; logErrorMsg() { printf "\n\e[43m\e[30m%s\n\e[0m" "${1}" >> /dev/st
 
 ########################################## Please place all dsh calls after this line ####################################
 
-
-dsh -n GlobalResponse "${app_name}" OpeningHtml 0
-
-dsh -n GlobalResponse "${app_name}" Header 0
-
-dsh -n Response "${app_name}" Homepage 0
-
-dsh -n Response "${app_name}" GettingStarted 0
-
-dsh -n GlobalResponse "${app_name}" Footer 0
-
-dsh -n GlobalResponse "${app_name}" ClosingHtml 0
-

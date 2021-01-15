@@ -27,12 +27,4 @@ set -o posix; logErrorMsg() { printf "\n\e[43m\e[30m%s\n\e[0m" "${1}" >> /dev/st
 
 ########################################## Please place all dsh calls after this line ####################################
 
-dsh -n OutputComponent "${app_name}" DoctypeHtmlHead StaticOutput 0 "<!DOCTYPE html><html lang='en'><head>"
-dsh -a "${app_name}" OpeningHtml DoctypeHtmlHead StaticOutput OutputComponent
-
-dsh -n DynamicOutputComponent "${app_name}" Title DynamicOutput 0.000000001 "Title.php"
-dsh -a "${app_name}" OpeningHtml Title DynamicOutput DynamicOutputComponent
-
-dsh -n OutputComponent "${app_name}" CloseHeadBody StaticOutput 1 "</head><body>"
-dsh -a "${app_name}" OpeningHtml CloseHeadBody StaticOutput OutputComponent
 
