@@ -30,7 +30,7 @@ start_development_server="${2:-0}"
 
 
 # @todo dsh --locate-ddms-directory : Return path to DDMS installation dsh is acting on
-path_to_ddms="${HOME}/DarlingDataManagementSystem"
+path_to_ddms="${HOME}/Downloads/DarlingDataManagementSystem"
 
 # @todo dsh --get-app-package-setting [PATH_TO_APP_PACKAGE] [SETTING_NAME] : Return value of specified setting defined in specified [PATH_TO_APP_PACKAGE]'s config.sh
 app_name="$(cat "${path_to_app_package}/config.sh" | grep 'app_name' | sed 's/^.*=//g' | sed 's/"//g')"
