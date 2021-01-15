@@ -17,9 +17,9 @@ dsh -a "${app_name}" Homepage HomepageHome HomepageRequests Request
 dsh -n Request "${app_name}" HomepageHomepage HomepageRequests "index.php?homepage"
 dsh -a "${app_name}" Homepage HomepageHomepage HomepageRequests Request
 
-dsh -n Request "${app_name}" OutputComponentOverview OutputComponentOverviewRequests "index.php?outputComponentOverview"
-dsh -a "${app_name}" OutputComponentOverview OutputComponentOverview OutputComponentOverviewRequests Request
-
 dsh -n Request "${app_name}" ResponseOverview ResponseOverviewRequests "index.php?responseOverview"
 dsh -a "${app_name}" ResponseOverview ResponseOverview ResponseOverviewRequests Request
+
+dsh -n Request "${app_name}" OutputComponentOverview OutputComponentOverviewRequests "index.php?outputComponentOverview"
+dsh -a "${app_name}" OutputComponentOverview OutputComponentOverview OutputComponentOverviewRequests Request
 
