@@ -17,3 +17,4 @@ set -o posix; logErrorMsg() { printf "\n\e[43m\e[30m%s\n\e[0m" "${1}" >> /dev/st
 
 ########################################## Please place all dsh calls after this line ####################################
 
+dsh -n GlobalResponse "${app_name}" MainMenu 5

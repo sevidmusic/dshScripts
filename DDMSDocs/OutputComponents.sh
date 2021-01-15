@@ -27,4 +27,6 @@ set -o posix; logErrorMsg() { printf "\n\e[43m\e[30m%s\n\e[0m" "${1}" >> /dev/st
 
 ########################################## Please place all dsh calls after this line ####################################
 
+dsh -n OutputComponent "${app_name}" MainMenu Menus 0 '<div class="ddms-docs-main-menu-container"><ul class="ddms-docs-main-menu"><li><a href="./">Home</a></li></ul></div>'
+dsh -a "${app_name}" MainMenu MainMenu Menus OutputComponent
 

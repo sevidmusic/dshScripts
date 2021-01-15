@@ -40,7 +40,7 @@ dsh -n GlobalResponse "${app_name}" Scripts 3
 # Apps relying on this App for the Html structure of their output MUST not define
 # any Responses or GlobalResponses at position 4, it is reserved for the closing,
 # <head> tag, and opening <body> tag.
-dsh -n GlobalResponse "${app_name}" CloseHeadBody 4
+dsh -n GlobalResponse "${app_name}" CloseHeadOpenBody 4
 
 # All output that is intened to exist within the <body>...</body> tags can be assigned
 # either to the Content GlobalResponse, or a Response whose position is 5.

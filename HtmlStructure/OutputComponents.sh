@@ -30,3 +30,10 @@ dsh -a "${app_name}" Styles StylesComment css OutputComponent
 dsh -n OutputComponent "${app_name}" ScriptsComment javascript 0 '<!-- javascript  -->'
 dsh -a "${app_name}" Scripts ScriptsComment javascript OutputComponent
 
+dsh -n OutputComponent "${app_name}" CloseHeadOpenBody OpeningHtml 0 '</head><body>'
+dsh -a "${app_name}" CloseHeadOpenBody CloseHeadOpenBody OpeningHtml OutputComponent
+
+dsh -n OutputComponent "${app_name}" CloseBodyCloseHtml ClosingHtml 0 '</body></html>'
+dsh -a "${app_name}" CloseBodyCloseHtml CloseBodyCloseHtml ClosingHtml OutputComponent
+
+
