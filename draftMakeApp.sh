@@ -13,6 +13,15 @@ devCleanUp() {
     [[ -d "${1}/.dcmsJsonData" ]] && rm -R "${1}/.dcmsJsonData" && printf "\nRemoved .dcmsJsonData\n"
 }
 
+copyDirectoryContents() {
+    local source_directory target_directory
+    source_directory="${path_to_app_package}/${1}"
+    target_directory="${path_to_ddms}/Apps/${app_name}/"
+    [[ ! -d "${source_directory}" ]] && printf "\nCannot copy files in \e[0m\e[102m\e[30m%s\e[0m to \e[0m\e[104m\e[30m%s\e[0m because \e[0m\e[102m\e[30m%s\e[0m does not exist\n" "${source_directory}" "${target_directory}" "${source_directory}" && exit 1
+    printf "\nCopying files in \e[0m\e[102m\e[30m%s\e[0m to \e[0m\e[104m\e[30m%s\e[0m\n" "${source_directory}" "${target_directory}"
+    cp -R "${source_directory}" "${target_directory}"
+}
+
 # Mimic [PATH_TO_APP_PACKAGE] parameter
 path_to_app_package="${1}"
 
@@ -42,13 +51,22 @@ fi
 
 dsh -n App "${app_name}"
 
-[[ -x "${path_to_app_package}/Responses.sh" ]] && . "${path_to_app_package}/Responses.sh"
-
-[[ -x "${path_to_app_package}/Requests.sh" ]] && . "${path_to_app_package}/Requests.sh"
-
-[[ -x "${path_to_app_package}/OutputComponents.sh" ]] && . "${path_to_app_package}/OutputComponents.sh"
-
 # cp base files...
+[[ -d "${path_to_app_package}/css" ]] && copyDirectoryContents css
+
+[[ -d "${path_to_app_package}/js" ]] && copyDirectoryContents js
+
+[[ -d "${path_to_app_package}/DynamicOutput" ]] && copyDirectoryContents DynamicOutput
+
+# Run dsh scripts
+[[ ! -x "${path_to_app_package}/Responses.sh" ]] && printf "Responses.sh is either does not exist or is not executable." && exit 1
+. "${path_to_app_package}/Responses.sh"
+
+[[ ! -x "${path_to_app_package}/Requests.sh" ]] && printf "Requests.sh is either does not exist or is not executable." && exit 1
+. "${path_to_app_package}/Requests.sh"
+
+[[ ! -x "${path_to_app_package}/OutputComponents.sh" ]] && printf "OutputComponents.sh is either does not exist or is not executable." && exit 1
+. "${path_to_app_package}/OutputComponents.sh"
 
 dsh -b "${app_name}"
 
