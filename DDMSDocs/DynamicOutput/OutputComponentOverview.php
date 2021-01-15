@@ -28,23 +28,26 @@ $crud = new ComponentCrud(
 <?php
     $bgClasses = ['group-odd', 'group-even'];
     $bgClass = $bgClasses[1];
-    foreach($crud->readAll($this->getLocation(), 'Menus') as $outputComponent) {
-        if($outputComponent->getName() !== 'OutputComponentOverview') {
-            $bgClass = ($bgClass === $bgClasses[0] ? $bgClasses[1] : $bgClasses[0]);
-            echo '
-    <div id="' . $outputComponent->getUniqueId() . '" class="component-info highlight-text-color ' . $bgClass . '">
-        <p>Name: <span class="default-text-color">' . $outputComponent->getName() . '</span></p>
-        <p>Unique Id: <span class="default-text-color">' . substr($outputComponent->getUniqueId(), 0, 17) . '...</span></p>
-        <p>Storage Location: <span class="default-text-color">' . $outputComponent->getLocation() . '</span></p>
-        <p>Storage Container: <span class="default-text-color">' . $outputComponent->getContainer() . '</span></p>
-        <p>Position: <span class="default-text-color">' . $outputComponent->getPosition() . '</span></p>
-        <p>Type: <span class="default-text-color">' . $outputComponent->getType() . '</span></p>
-        <p>Output:</p>
-        <div class="component-info-output-preview font-audio-wide">
-        ' . str_replace(['<', '>'], ['&lt;', '&gt;' . '<br>'], $outputComponent->getOutput()) . '
+    $ocContainers = ['Menus', 'ResponseOverviewContent', 'OutputComponentsOverviewContent'];
+    foreach($ocContainers as $container) {
+        foreach($crud->readAll($this->getLocation(), $container) as $outputComponent) {
+            if($outputComponent->getName() !== 'OutputComponentOverview') {
+                $bgClass = ($bgClass === $bgClasses[0] ? $bgClasses[1] : $bgClasses[0]);
+                echo '
+        <div id="' . $outputComponent->getUniqueId() . '" class="component-info highlight-text-color ' . $bgClass . '">
+            <p>Name: <span class="default-text-color">' . $outputComponent->getName() . '</span></p>
+            <p>Unique Id: <span class="default-text-color">' . substr($outputComponent->getUniqueId(), 0, 17) . '...</span></p>
+            <p>Storage Location: <span class="default-text-color">' . $outputComponent->getLocation() . '</span></p>
+            <p>Storage Container: <span class="default-text-color">' . $outputComponent->getContainer() . '</span></p>
+            <p>Position: <span class="default-text-color">' . $outputComponent->getPosition() . '</span></p>
+            <p>Type: <span class="default-text-color">' . $outputComponent->getType() . '</span></p>
+            <p>Output:</p>
+            <div class="component-info-output-preview font-audio-wide">
+            ' . str_replace(['<', '>'], ['&lt;', '&gt;' . '<br>'], $outputComponent->getOutput()) . '
+            </div>
         </div>
-    </div>
-            ';
+                ';
+            }
         }
     }
 ?>
