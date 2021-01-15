@@ -21,6 +21,9 @@ dsh -a "${app_name}" DoctypeOpenHtmlOpenHeadTitle Title title DynamicOutputCompo
 dsh -n OutputComponent "${app_name}" MetaComment meta 0 '<!-- meta data -->'
 dsh -a "${app_name}" Meta MetaComment meta OutputComponent
 
+dsh -n DynamicOutputComponent "${app_name}" GlobalMeta meta 0.0000000001 "Meta.php"
+dsh -a "${app_name}" Meta GlobalMeta meta DynamicOutputComponent
+
 dsh -n OutputComponent "${app_name}" StylesComment css 0 '<!-- css -->'
 dsh -a "${app_name}" Styles StylesComment css OutputComponent
 
