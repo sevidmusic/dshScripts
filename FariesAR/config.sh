@@ -11,20 +11,20 @@ set -o posix
 
 app_name="FariesAR"
 
-bug_contact="contact not provided"
+bug_contact="sdmwebsdm@gmail.com"
 
 config_locked="0"
 
 declare -A dependencies
-dependencies=()
+dependencies=( ["HtmlStructure"]="0.0.0" )
 
 description="The FariesAR App was developed for the Darling Data Management System."
 
-developers=()
+developers=( "Sevi Donnelly Foreman" )
 
-development_port="PORT"
+development_port="8080"
 
-documentation="DOCUMENTATION_SOURCE"
+documentation="self-documented"
 
 domain="http://localhost:8080"
 
@@ -32,5 +32,5 @@ license="MIT"
 
 version="0.0.0"
 
-version_date="unknown"
+version_date="2021-01-06"
 
