@@ -46,7 +46,6 @@ a {
 
 a:hover {
     color: #020304;
-    text-shadow: 3px 3px 3px #65a4dc;
     background: #a1f5c8;
 }
 
@@ -62,7 +61,7 @@ a:hover {
 
 .contentContainer {
     background: #020304;
-    opacity: 0.72;
+    opacity: 0.82;
     border: 2px double #65a4dc;
     border-radius: 0em 7em 0em 7em;
 }
