@@ -14,3 +14,6 @@ dsh -a "${app_name}" ARDemo ARMarkerDemo ARContent DynamicOutputComponent
 dsh -n DynamicOutputComponent "${app_name}" GlobalCssLinks StylesheetLinks 0 "GlobalStylesheetLinks.html"
 dsh -a "${app_name}" GlobalStyles GlobalCssLinks StylesheetLinks DynamicOutputComponent
 
+dsh -n DynamicOutputComponent "${app_name}" MainMenu Widgets 0 "MainMenu.php"
+dsh -a "${app_name}" Banner MainMenu Widgets DynamicOutputComponent
+
