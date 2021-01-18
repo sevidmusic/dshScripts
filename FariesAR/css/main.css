@@ -20,10 +20,34 @@
 body {
     background-image: url("/Apps/FariesAR/DynamicOutput/Media/FariesSiteBGImg.png");
     font-size: 16px;
+    font-family: 'Fredericka the Great', cursive;;
+}
+
+a {
+    text-decoration: none;
+    background: #020304;
+    opacity: 0.72;
+    border: 1px solid #65a4dc;
+    border-radius: 7em 0 7em 0;
+    padding: .5em 1em;
 }
 
 .datetime {
+    background: #020304;
+    opacity: 0.72;
+    margin: 1em auto;
+    padding: .5em;
+    display: none;
+}
+
+.datetime, a, a:visited {
     color: #a1f5c8;
+}
+
+a:hover {
+    color: #020304;
+    text-shadow: 3px 3px 3px #65a4dc;
+    background: #a1f5c8;
 }
 
 .defaultHeader {
@@ -41,4 +65,8 @@ body {
     opacity: 0.72;
     border: 2px double #65a4dc;
     border-radius: 0em 7em 0em 7em;
+}
+
+li {
+    display: inline;
 }
