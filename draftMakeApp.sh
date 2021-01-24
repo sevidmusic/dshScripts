@@ -71,7 +71,7 @@ makeApp() {
     app_name="$(getConfigValue "${path_to_app_package}" 'app_name')"
     [[ -z "${app_name}" ]] && printf "\n\e[103m\e[30mThe app_name could not be determined. app_name is: %s" "${app_name}" && exit 1
     replaceApp "${app_name}"
-    dsh -n App "${app_name}" "$(getConfigValue 'domain')"
+    dsh -n App "${app_name}" "$(getConfigValue "${path_to_app_package}"  'domain')"
     copyBaseFiles "${path_to_app_package}"
     runDshScripts "${path_to_app_package}"
 }
